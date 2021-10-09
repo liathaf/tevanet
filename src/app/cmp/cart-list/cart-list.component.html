@@ -1,0 +1,33 @@
+<div class="cart-product-list" [ngClass]="{'cart-page': atCartPage}">
+
+    <div class="close-btn-cart-title-name-product-container flex space-between">
+        <div class="title-cart-product-names-container flex">
+            <h1 class="title-cart">סל הקניות</h1>
+            <div class="product-names-container flex">
+                <p class="fs18">{{cartProducts.length}}</p>
+                <p class="fs18">{{cartProducts.length === 1 ? 'פריט' : 'פריטים'}}</p>
+            </div>
+        </div>
+        <button class="close-cart-product-box fs22" (click)="onCloseCart.emit()">X</button>
+    </div>
+
+    <cart-preview *ngFor="let cartProduct of cartProducts" [cartProduct]="cartProduct" [atCartPage]="atCartPage"
+    (onChangeProductQuantity)="changeProductQuantity.emit($event)"
+    (onRemoveCartProduct)="removeCartProduct.emit($event)"
+    (onRemovePointerEventsFromCart)="removePointerEventsFromCart.emit($event)">
+    </cart-preview>
+
+    <p class="empty-cart-msg fs18" *ngIf="!(cartProducts && cartProducts.length)">סל הקניות ריק</p>
+
+    <div *ngIf="cartProducts && cartProducts.length" class="productsPayment flex">
+        <p>סכום ביניים לתשלום: </p>
+        <!-- pipe - calcPayment -->
+        <p class="product-price fs20">{{cartProducts | calcPayment}}</p>
+    </div>
+
+    <div *ngIf="cartProducts && cartProducts.length" class="view-bag-checkout-btns flex space-between">
+        <button class="general-btn checkout-btn fs16">מעבר לתשלום</button>
+        <a class="general-btn cart-btn fs16 flex align-center justify-center" (click)="goToCartPage()">לסל הקניות</a>
+    </div>
+
+</div>

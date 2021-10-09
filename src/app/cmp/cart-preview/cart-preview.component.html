@@ -1,0 +1,31 @@
+<div *ngIf="cartProduct" class="product-preview">
+    <div class="cartProduct flex align-center" [ngClass]="{'cart-page': atCartPage}">
+
+        <img class="img-product" [src]="cartProduct.product.imgs.producImgUrl" alt="">
+
+        <div class="product-price-name-remove-container flex column">
+            <button class="remove-cartProduct-btn" (click)="onRemoveCartProduct.emit(cartProduct._id)">הסרה X</button>
+            <div class="cartProduct-names-container flex">
+                <a class="cartProduct-name fs18" (click)="goToProductDetails()">{{cartProduct.product.name.HEB}}</a>
+                <a class="cartProduct-name fs18" (click)="goToProductDetails()">{{cartProduct.product.name.EN}}</a>
+            </div>
+            <p class="price product-price">{{cartProduct.product.price}}</p>
+            <div class="add-product-total-price-container flex space-between">
+                <div class="change-quantity-product-container flex">
+                    <button (click)="onChangeProductQuantity.emit({cartProductId: cartProduct._id, action:'increase'})"
+                     class="general-btn fs16">+
+                    </button>
+                    <p class="productQuantity fs16 flex align-center justify-center">{{cartProduct.quantity}}</p>
+                    <button (click)="onChangeProductQuantity.emit({cartProductId: cartProduct._id, action:'decrease'})" 
+                    class="general-btn fs16">-
+                    </button>
+                </div>
+                <div class="total-price flex">
+                    <p>סך הכל:</p>
+                    <p class="product-price">{{cartProduct.product.price * cartProduct.quantity}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,16 +1,60 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './cmp/app/app.component';
+import { NavBarComponent } from './cmp/nav-bar/nav-bar.component';
+import { ProductFilterComponent } from './cmp/product-filter/product-filter.component';
+import { ProductListComponent } from './cmp/product-list/product-list.component';
+import { ProductPreviewComponent } from './cmp/product-preview/product-preview.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ModalComponent } from './cmp/modal/modal.component';
+import { BreadcrumbsComponent } from './cmp/breadcrumbs/breadcrumbs.component';
+import { CartPreviewComponent } from './cmp/cart-preview/cart-preview.component';
+import { CartListComponent } from './cmp/cart-list/cart-list.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { CalcPaymentPipe } from './pipes/calc-payment.pipe';
+import { FooterComponent } from './cmp/footer/footer.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    ProductFilterComponent,
+    ProductListComponent,
+    ProductPreviewComponent,
+    HomeComponent,
+    ProductDetailsComponent,
+    ProductsComponent,
+    ModalComponent,
+    BreadcrumbsComponent,
+    CartPreviewComponent,
+    CartListComponent,
+    CartComponent,
+    CalcPaymentPipe,
+    FooterComponent,
+    ContactComponent,
+    AboutComponent,
+    ArticleDetailsComponent,
+
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDSsLHSQq148v07iJ7c72RftSkPhQyp5xg'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

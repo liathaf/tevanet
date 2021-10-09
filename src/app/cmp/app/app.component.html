@@ -1,0 +1,10 @@
+<div class="app">
+    <nav-bar></nav-bar>
+    <main class="main">
+        <breadcrumbs [breadcrumb]="breadcrumb" [isAtProductsPage]="isAtProductsPage" [isAtDetailsPage]="isAtDetailsPage"></breadcrumbs>
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </main>
+    <footer></footer>
+    <div (click)="closeModal()" [ngClass]="{'display-screen' : isDisplayScreen}" class="screen"></div>
+    <modal (closeModal)="closeModal()" [productImg]="productImg"></modal>
+</div>

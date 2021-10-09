@@ -1,0 +1,12 @@
+.app{
+    position: relative;
+
+    .main{
+
+        @include for-middel-layout{
+            margin-top: rem(20px);
+        }
+        
+        
+    }
+}

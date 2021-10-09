@@ -1,0 +1,51 @@
+<div *ngIf="product" class="product-details container">
+
+    <div class="product-name-desc-prev-container flex column">
+        <div class="product-name-add-to-cart-container flex space-between align-start">
+            <div class="product-name-container flex" [ngClass]="{'column': isTextNameTooLong}">
+                <h1 class="product-name fs22">{{product.name.HEB}}</h1>
+                <h1 class="product-name fs22">{{product.name.EN}}</h1>
+            </div>
+            <button class="add-to-cart-btn flex align-center space-around" (click)="onAddProductToCart()">
+                <img class="add-to-cart-icon" src="../../../assets/img/cart-icon-white.svg" alt="">
+            </button>
+        </div>
+        <p class="product-price fs22">{{product.price}}</p>
+        <p class="product-desc-prev">{{product.description.descPreview}}</p>
+    </div>
+
+    <div class="product-imgs flex align-center column">
+        <img class="product-img" (click)="onDisplayImg({imgName: 'productImg' , imgUrl : product.imgs.producImgUrl})" [src]="product.imgs.producImgUrl" alt="">
+        <h1 class="product-img-title fs18">תווית המוצר</h1>
+        <img class="product-img-label" (click)="onDisplayImg({imgName: 'productLabel', imgUrl:product.imgs.labelImgUrl})" [src]="product.imgs.labelImgUrl" alt="">
+    </div>
+
+    <div class="tabs-desc-product flex space-between align-center">
+        <button [ngClass]="{ 'tab-clicked' : isDetailsTodisplay}" (click)="toggleDescProductTabs('about')" class="about-product-title fs16">על המוצר</button>
+        <button [ngClass]="{'tab-clicked' : isNotesTodisplay}" (click)="toggleDescProductTabs('notes')" class="notes-product-title fs16">הערות</button>
+        <button [ngClass]="{'tab-clicked' : isInstructionTodisplay}" (click)="toggleDescProductTabs('instructions')" class="instructions-product-title fs16">הוראות
+            שימוש</button>
+    </div>
+
+    <div class="product-desc">
+        <div class="product-desc-container">
+            <div class="product-desc-paragraph-list" [ngClass]="{ 'tab-clicked' : isDetailsTodisplay}" >
+                <p class="product-desc-paragraph" [ngClass]="{'font-weight-bold' : paragraph.fontWeightBold , 'title': paragraph.isParagraphTitle}" *ngFor="let paragraph of product.description.descDetails">{{paragraph.paragraph}}</p>
+            </div>
+            <div class="product-notes-list" [ngClass]="{'tab-clicked' : isNotesTodisplay}" >
+                <div class="product-note flex align-center"
+                    *ngFor="let note of product.notes">
+                    <img class="marker-note-img" src="../../../assets/img/leaf.svg" alt="">
+                    <p>{{note}}</p>
+                </div>
+            </div>
+            <div class="product-instructions-list" [ngClass]="{'tab-clicked' : isInstructionTodisplay}">
+                <p class="product-instruction" *ngFor="let instruction of product.instructions">{{instruction}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="space">
+
+</div>

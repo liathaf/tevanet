@@ -1,0 +1,32 @@
+<div class="contact-page container">
+    <h1 class="title">צור קשר</h1>
+    <div *ngIf="!isMailSent" class="contact-form-map-container">
+        <p class="contact-details">
+            בכל שאלה ובקשה ניתן ליצור איתנו קשר באמצעות טופס יצירת הקשר או בטלפון למספר: 0532842348 או בכתובת המייל: tevabakirya@gmail.com
+        </p>
+        <form class="contact-form" (submit)="onSubmitContactForm()" ngNativeValidate >
+            <input required class="name fs16" name="name" type="text" [(ngModel)]="name" placeholder="שם מלא">
+            <input required class="mail fs16" name="mail" type="text" [(ngModel)]="mail" placeholder="אימייל">
+            <input required class="phone fs16" name="phone" type="text" [(ngModel)]="phone" placeholder="מספר טלפון">
+            <textarea required class="desc fs16" name="desc" 
+            [(ngModel)]="desc" placeholder="הודעה..."></textarea>
+            <button class="submission-btn general-btn flex align-center justify-center">
+                <p *ngIf="!isLoadingAnimationOn">שלח</p>
+                <img *ngIf="isLoadingAnimationOn" class="loading-img" src="../../../assets/img/loading.png" alt="">
+            </button>
+        </form>
+         
+        <!-- this creates a google map on the page with the given lat/lng from -->
+        <!-- the component as the initial center of the map: -->
+        <agm-map class="google-map" [latitude]="lat" [longitude]="lng" [zoom]="18">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+
+    </div> 
+    <div *ngIf="isMailSent" class="sentMailMsg flex column align-center justify-center">
+        <img src="../../../assets/img/text-message.svg" alt="">
+        <p class="fs20">
+            תודה על פנייתך, נחזור אליך בהקדם בברכה, טבע בקריה.
+        </p>
+    </div>
+</div>

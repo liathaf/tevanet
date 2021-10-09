@@ -1,0 +1,20 @@
+.general-btn{
+    color: white;
+    background-color: $clr2;
+    border-radius: 5px;
+    line-height: 2em;
+    font-weight: bold;
+    padding: 0 rem(10px);
+}
+
+.add-to-cart-btn{
+    width: rem(40px);
+    padding: rem(5px);
+    margin-inline-end: rem(20px);
+    .add-to-cart-icon{
+        width: 90%;
+        
+    }
+}
+
+

@@ -1,0 +1,43 @@
+.product-img-container-modal{
+
+    position:absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50% ,-50%);
+    z-index: 4;
+    
+    .close-modal-btn{
+        
+        position: absolute;
+        background-color: $clr4;
+        border-radius: 999px;
+        border: 3px solid $clr2;
+        width: 30px;
+        height: 30px;     
+        padding: rem(10px);
+        font-weight: bold;
+        right: -10px;
+        top: -10px;
+        
+    }
+    
+    .product-img-url{
+
+        border: 3px solid $clr2;
+
+        &.product-img{
+            width: 20vw;
+            
+        }
+
+        @include for-middel-layout{&.product-img{width: 40vw;}}
+        @include for-tablet-layout{&.product-img{width: 50vw;}}
+        @include for-mobile-layout{&.product-img{width: 70vw;}}
+
+        &.product-img-label{
+            width: 90vw;
+            
+        }
+       
+    }
+}

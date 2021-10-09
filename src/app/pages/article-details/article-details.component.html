@@ -1,0 +1,27 @@
+<div class="article-details container">
+    <img class="article-img" [src]="article.imgUrl" alt="">
+    <h1 class="article-name" >{{article.name}}</h1>
+    <div class="article-desc" *ngFor="let articleDesc of article.desc">
+
+        <div class="paragraph-title-container" *ngIf="articleDesc.title">
+
+            <h1 class="article-title fs20">{{articleDesc.title}}</h1>
+            
+            <div class="article-paragraph-container" *ngIf="articleDesc.paragraphs">
+                <p class="article-paragraph" *ngFor="let paragraph of articleDesc.paragraphs">{{paragraph}}</p>
+            </div>
+            
+            <p class="article-paragraph" *ngIf="articleDesc.paragraph">{{articleDesc.paragraph}}</p>
+            
+        </div>
+       
+        <p class="article-paragraph" *ngIf="!articleDesc.title">{{articleDesc}}</p>
+        
+    </div>
+</div>
+
+
+
+
+
+

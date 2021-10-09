@@ -1,0 +1,12 @@
+<div class="products container">
+    <h1 [hidden]="(isSearchProduct && (products && products.length===0))" class="product-category fs24">{{productsFilter}}</h1>
+    <product-list (addProductToCart)="onAddProductToCart($event)" [products]="products"></product-list>
+    <div class="cannot-find-product-msg">
+        <p [hidden]="!(isSearchProduct && (products && products.length===0))">
+            אנחנו מתנצלים...
+            חיפשנו בכל האתר אך לא מצאנו את
+            <span class="productsFilter">{{productsFilter}}</span>
+        </p>
+       
+    </div>
+</div>

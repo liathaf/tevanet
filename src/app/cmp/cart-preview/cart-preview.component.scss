@@ -1,0 +1,93 @@
+.cartProduct{
+    margin-bottom: rem(10px);
+    padding: 0 rem(20px) rem(10px) rem(20px);
+    border-bottom: 1px solid $clr8;
+    .img-product{
+        width: 20%;
+        height: fit-content;
+        margin-inline-end: rem(15px);
+    }
+
+    .product-price-name-remove-container{
+        & > *{
+            margin-bottom: rem(10px);
+        }
+        width: 80%;
+
+        .remove-cartProduct-btn{
+            align-self: flex-end; 
+            background-color: unset;
+            font-weight: bold;
+            color: $clr7;
+        }
+
+        .cartProduct-names-container{
+            .cartProduct-name:nth-child(1) {
+
+                &::after {
+                    margin: 0 rem(5px);
+                    content: "|";
+                }
+                
+            }
+        }
+
+        .add-product-total-price-container{
+            .change-quantity-product-container{
+                margin-inline-end: rem(10px);
+                border: solid 2px $clr2;
+                border-radius: 999px;
+                button {
+                    line-height: 1.5em;
+                    background-color: unset;
+                    color: $clr3;
+                }
+                .productQuantity{
+                    margin: 0 rem(5px);
+                    border-left: solid 2px $clr2; 
+                    border-right: solid 2px $clr2; 
+                    height: 100%;
+                    padding: 0 rem(5px);
+                }
+            }
+
+            .total-price{
+                font-weight: bold;
+                & p:nth-child(1){margin-inline-end: rem(5px);}
+                align-self: flex-end;
+            }
+            
+        }
+
+        
+    }
+
+    &.cart-page {
+      
+        .img-product{
+            width: 10%;
+  
+        }
+    
+        .product-price-name-remove-container{
+          
+            width: 100%;
+    
+     
+    
+            .cartProduct-names-container{
+                .cartProduct-name{
+                    font-weight: bold;
+                }
+            }
+    
+    
+            
+        }
+
+        @include for-mobile-layout {
+            .img-product{width: 20%}; 
+        }
+
+    }
+}

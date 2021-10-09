@@ -1,0 +1,52 @@
+.breadcrumbs{
+
+    padding-bottom: rem(30px);
+    width: 100%;
+    margin: 0 auto;
+    
+
+        .breadcrumb{
+           
+            .breadcrumb-link{
+                
+                font-weight: bold;
+                color: $clr7;
+                line-height: 2em;
+                padding: 0 rem(20px) 0 rem(30px);
+                border-radius:  0px 0px 0px 150px; 
+                
+            }
+            
+           &:nth-child(1){
+                background-color: $clr8;
+                .breadcrumb-link {background-color: $clr5;}
+            }
+            
+            &:nth-child(2){
+                background-color: $clr2;
+                .breadcrumb-link {background-color: $clr8;}
+            }
+           
+           &:nth-child(3){      
+                .breadcrumb-link {
+                    background-color: $clr2;
+                    color: $clr3;
+                }
+            }
+
+            &:last-child{
+                background-color: unset;
+            }
+
+            &:hover{
+                .breadcrumb-link {color: $clr3;}
+            
+            }
+        }
+
+        
+        @include for-mobile-layout{
+            display: none;
+        }
+        
+}

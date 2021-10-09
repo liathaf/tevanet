@@ -1,0 +1,199 @@
+.home{
+   
+    .product-categories-container{
+        
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(200px,1fr));
+        grid-gap: 30px;
+        justify-content: center;
+        margin-top: rem(20px);
+        .categorie-img-container-link{
+            box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+            border-radius: 15px;
+      
+     
+            @include aspect-ratio(1, 1);
+            img{
+                width: 100%;
+            }
+
+            .categories-name{
+                position: absolute;
+                background-color: #ffffffcc;
+                z-index: 1;
+                bottom: 0;
+                width: 100%;
+                line-height: 2em;
+                transition: all 0.3s;
+
+
+                
+            }
+
+            &:hover{
+                .categories-name{
+                    background-color: #8dc63fcc;
+                    color: #ffff;
+                }
+            }
+        }
+
+       
+        @include for-middel-layout{
+            grid-template-columns: repeat(4, minmax(150px,1fr));
+            
+        }
+        @include for-tablet-layout{
+            grid-template-columns: repeat(2, minmax(170px,1fr));
+           
+        }
+        @include for-mobile-layout{
+            grid-template-columns: repeat(1, minmax(180px,1fr));
+        }
+
+
+ 
+    }
+
+    .article-title{
+        margin: rem(80px) 0 rem(20px) 0;
+    }
+
+
+    .articles-container{
+
+        height: 500px;
+        border: 1px solid $clr8;
+        padding: rem(10px);
+        background-color: $clr5;
+
+
+        .article-img-container{
+            overflow: hidden;
+            .article-img{
+                transition: transform .5s ease;
+                
+            }
+        }
+
+
+        .articles{
+            width: 50%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            direction: ltr;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: $clr5;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $clr7;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: $clr2;
+            }
+
+            .article{
+                padding: rem(15px) 0;
+                margin: 0 rem(10px);
+                border-bottom: 1px solid $clr8;
+                .article-name{
+                    width: 50%;
+                    margin-inline-start: rem(15px);
+                }
+                .article-img-container{
+                    height: 100px;
+                    width: 30%;
+
+                    @include for-middel-layout{width: 50%;}
+                    
+                    
+                  
+                }
+                
+            }
+        }
+        
+        .new-article{
+            
+            height: 100%;
+            
+            .article-img-container{
+
+                height: 90%;
+                .article-img{
+                    height: 100%;
+                }
+            }
+
+            .article-name{
+                
+                margin: rem(10px) 0;
+            }
+            
+
+        }
+
+        .article , .new-article {
+
+            &:hover{
+                .article-name{text-decoration: underline;}
+                .article-img{transform: scale(1.1);}
+            }
+        }
+
+
+
+        @include for-middel-layout{
+            height: 420px;
+            .articles .article .article-img-container{height: unset;}
+        }
+
+        @include for-tablet-layout{height: 280px;}
+
+        @include for-narrow-tablet{height: 200px;}
+
+
+        @include for-mobile-layout{
+
+            flex-direction: column-reverse;
+            height: unset;
+            border: unset;
+            
+            // background-color: unset;
+
+            .articles{
+                width: 100%;
+                overflow-y: unset;
+                overflow-x: hidden;
+                
+            }
+            
+            .new-article {
+                width: 100%;
+                border-bottom: 1px solid $clr8;
+                padding-bottom: rem(15px);
+               
+            }
+
+        }
+
+        
+        
+
+
+    }
+}
+
+

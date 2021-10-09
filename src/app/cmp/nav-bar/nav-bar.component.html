@@ -1,0 +1,80 @@
+<header [ngClass]="{'smaller-nav-bar' : isScrolled}">
+    <nav class="nav-bar-container container flex align-center space-between">
+
+
+        <ul class="nav-bar-links flex" [ngClass]="{'open-manu': isOpenManu}">
+            <li
+                [ngClass]="{'displayCategoryManu': isOpenProductCategoryManu , 'no-pointer-events' : isRemovePointerEvents}">
+                <h1 class="products-title fs22" (click)="toggleProductCategoryManu()">מוצרים</h1>
+                <div class="products-categories">
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/ויטמינים-ומינרלים')">ויטמינים ומינרלים
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/צמחי-מרפא')">צמחי מרפא
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/ספורט-ואנרגיה')">ספורט ואנרגיה
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/ארומתרפיה')">ארומתרפיה
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/קוסמטיקה-טבעית')">קוסמטיקה טבעית
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/בריאות-האישה')">בריאות האישה
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/בריאות-הגבר')">בריאות הגבר
+                    </a>
+                    <a class="category-link flex align-center justify-center"
+                        (click)="goToProductsPage('products/תוספים כללי-כל התוספים')">תוספים כללי/כל התוספים
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a (click)="goToNavBarLink('about')" class="about fs22">אודות</a>
+            </li>
+            <li>
+                <a (click)="goToNavBarLink('contact')" class="contact fs22">צור קשר</a>
+            </li>
+        </ul>
+
+
+
+
+        <a href="" class="logo-link">
+            <div *ngIf="!isScrolled" class="img-icon-container">
+                <img class="logo-img" src="../../../assets/img/teva_bakiria_logo.svg" />
+            </div>
+            <img *ngIf="isScrolled" class="logo-img-small-nav-bar"
+                src="../../../assets/img/teva_bakiria_logo_for_small_nav_bar.svg" />
+        </a>
+
+
+
+        <product-filter></product-filter>
+        
+        <div class="cart-link-products"
+            [ngClass]="{'no-pointer-events' : isDisablePointerEvents , 'close-cart': isCloseCart , 'display-cart': isDisplayCart}">
+            
+            <a routerLink="products/cart" href="" class="cart-link">
+                <img class="cart-icon" src="../../../assets/img/cart-icon.svg" alt="">
+            </a>
+
+            <div class="cart-product-count flex align-center justify-center">{{cartProducts.length}}</div>
+            
+            <!-- on hover cart link - cart display -->
+            <cart-list [cartProducts]="cartProducts" (removeCartProduct)="onRemoveCartProduct($event)"
+                (changeProductQuantity)="onChangeProductQuantity($event)"
+                (removePointerEventsFromCart)="onRemovePointerEventsFromCart($event)" (onCloseCart)="closeCart()">
+            </cart-list>
+        </div>
+
+    </nav>
+    <div class="nav-bar-border"></div>
+    <div class="manu-icon" (click)="toggleManu()">
+        <div class="manu-inner"></div>
+    </div>
+</header>

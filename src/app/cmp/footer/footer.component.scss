@@ -1,0 +1,47 @@
+.footer{
+
+    border-top: 2px solid $clr2;
+    margin-top: rem(100px);
+    .footer-container{
+
+        width: 90%;
+        & > div {
+            border-bottom: 1px dotted $clr8;
+            padding: rem(15px) 0;
+
+            &:first-child{
+                padding: 0;
+            }
+        }
+        
+        
+        .title{
+            font-weight: bold;
+            margin-inline-end: rem(5px);
+            
+        }
+    
+    
+        .social{
+       
+            a{
+                .facebook-icon{
+                    width: 27px;
+                }
+            }
+        }
+    
+    
+    
+        .logo-container{
+           
+            .logo{
+                width: 130px;
+            }
+    
+        }
+    
+
+    }
+    
+}

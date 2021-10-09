@@ -1,0 +1,62 @@
+<div class="home container"> 
+
+    <!-- categories product -->
+    <h1 class="categories-title fs24">
+        קטגוריות
+    </h1>
+    <div class="product-categories-container">
+        <a [routerLink]="['/products','ויטמינים-ומינרלים']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center" >ויטמינים ומינרלים</h1>
+            <img src="../../../assets/img/Categories/vitamins&minerals.jpg" alt="">
+        </a>
+        <a  [routerLink]="['/products','צמחי-מרפא']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center" >צמחי מרפא</h1>
+            <img src="../../../assets/img/Categories/medicinal_plants.jpg" alt="">
+        </a>
+        <a [routerLink]="['/products','בריאות-האישה']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center">בריאות האישה</h1>
+            <img src="../../../assets/img/Categories/women-health.jpg" alt="">
+        </a>
+        <a [routerLink]="['/products','ספורט-ואנרגיה']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center" >ספורט ואנרגיה</h1>
+            <img src="../../../assets/img/Categories/sports.jpg" alt="">
+        </a>
+        <a [routerLink]="['/products','ארומתרפיה']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center" >ארומתרפיה</h1>
+            <img src="../../../assets/img/Categories/aromatherpia.jpg" alt="">
+        </a>
+        <a [routerLink]="['/products','קוסמטיקה-טבעית']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center">קוסמטיקה טבעית</h1>
+            <img src="../../../assets/img/Categories/cosmetics.jpg" alt="">
+        </a>
+        <a [routerLink]="['/products','בריאות-הגבר']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center">בריאות הגבר</h1>
+            <img src="../../../assets/img/Categories/man-health.jpg" alt="">
+        </a>
+        <a [routerLink]="['/products','תוספים כללי-כל התוספים']" href="" class="categorie-img-container-link">
+            <h1 class="categories-name fs22 flex align-center justify-center">תוספים כללי/כל התוספים</h1>
+            <img src="../../../assets/img/Categories/all-products.jpg" alt="">
+        </a>
+    </div>
+
+
+    <!-- articles -->
+    <h1 class="article-title fs24">מאמרים ומחקרים להעשרה</h1>
+    <div class="articles-container flex space-between" *ngIf="articles.length && articles">
+        <div class="articles">
+            <a class="article flex align-center" *ngFor="let article of articles.slice(0,articles.length-1)" [routerLink]="['/article',article._id]">
+                <div class="article-img-container">
+                    <img class="article-img" [src]="article.imgUrl" alt="">
+                </div>
+                 <h1 class ="article-name fs18">{{article.name}}</h1>
+            </a>
+        </div>
+       <a class="new-article flex column align-center space-between" [routerLink]="['/article',articles[articles.length-1]._id]">
+            <div class="article-img-container">
+                <img class="article-img" [src]="articles[articles.length-1].imgUrl" alt="">
+            </div>
+            <h1 class ="article-name fs20">{{articles[articles.length-1].name}}</h1>
+        </a>
+    </div>
+
+</div>

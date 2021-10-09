@@ -1,0 +1,5 @@
+<div class="product-img-container-modal" [hidden]="!productImg.imgUrl">
+    <button class="close-modal-btn fs20 flex justify-center align-center" (click)="onCloseModal()">x</button>
+    <img class="product-img-url" [src]="productImg.imgUrl" 
+    [ngClass]="{'product-img' : productImg.imgName === 'productImg' , 'product-img-label' : productImg.imgName === 'productLabel' }" alt="">
+</div>

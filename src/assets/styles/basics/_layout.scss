@@ -1,0 +1,28 @@
+.app{
+
+    .container{
+        margin: 0 auto;
+        padding-inline-end: 30px;
+        padding-inline-start: 30px;
+    }
+
+
+    @include for-desktop-layout{
+            
+        .container{
+            max-width: $desktop-breakpoint;
+        }
+        
+    }
+
+    @include for-middel-layout{
+        
+        .container{
+            max-width: $middel-breakpoint;
+        }
+     
+            
+        
+    }
+
+}

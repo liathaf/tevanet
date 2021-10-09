@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+// // Setup
+@import "./assets/styles/setup/variables";
+@import "./assets/styles/setup/functions";
+@import "./assets/styles/setup/mixins";
+@import "./assets/styles/setup/typography.scss";
+
+// // Basics
+@import "./assets/styles/basics/helpers";
+@import "./assets/styles/basics/layout";
+@import "./assets/styles/basics/base";
+@import "./assets/styles/basics/links";
+@import "./assets/styles/basics/buttons";
+
+// cmps
+@import "./app/cmp/app/app.component.scss";
+@import "./app/cmp/nav-bar/nav-bar.component.scss";
+@import "./app/cmp/product-filter/product-filter.component.scss";
+@import "./app/cmp/product-list/product-list.component.scss";
+@import "./app/cmp/product-preview/product-preview.component.scss";
+@import "./app/cmp/modal/modal.component.scss";
+@import "./app/cmp/breadcrumbs/breadcrumbs.component.scss";
+@import "./app/cmp/cart-list/cart-list.component.scss";
+@import "./app/cmp/cart-preview/cart-preview.component.scss";
+@import "./app/cmp/footer/footer.component.scss";
+
+
+// pages
+@import "./app/pages/home/home.component.scss";
+@import "./app/pages/products/products.component.scss";
+@import "./app/pages/product-details/product-details.component.scss";
+@import "./app/pages/cart/cart.component.scss";
+@import "./app/pages/contact/contact.component.scss";
+@import "./app/pages/about/about.component.scss";
+@import "./app/pages/article-details/article-details.component.scss";
