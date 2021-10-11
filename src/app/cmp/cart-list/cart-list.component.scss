@@ -52,6 +52,7 @@
         & > * {
             line-height: 3em;
             width: 45%;
+            @include for-mobile-layout {width: unset;}
           
         }
         .checkout-btn , .cart-btn {
@@ -96,20 +97,21 @@
     
         .productsPayment {
             .product-price {
-                // margin-inline-start: rem(10px);
-                // margin-bottom: rem(15px);
+          
             }
         }
         .view-bag-checkout-btns {
             justify-content: end;
 
-            @include for-mobile-layout {justify-content: center;}
             
             .checkout-btn {width: 200px;}
-    
+            
             .cart-btn {
                 display: none;
             }
+            @include for-mobile-layout {justify-content: center;}
         }
     }
+
+    @include for-mobile-layout {width: 277px;}
 }

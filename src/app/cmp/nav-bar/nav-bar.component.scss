@@ -4,7 +4,6 @@ header {
     position: relative;
     top: 0;
     width: 100%;
-    // transition: all 0.5s;
     
     z-index: 2;
 
@@ -225,7 +224,7 @@ header {
         }
 
         .cart-link-products {
-            &:hover {
+            &:hover  {
                 cart-list {
                     > div {
                         max-height: 80vh;
@@ -238,6 +237,7 @@ header {
             &.no-pointer-events {
                 pointer-events: none;
             }
+
         }
     }
 
@@ -417,6 +417,17 @@ header {
                     }
                 }
             }
+
+            .cart-link-products {
+                
+                &.display-cart {
+                    cart-list {
+                        > div {
+                            // max-height: 0;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -424,6 +435,5 @@ header {
 
 @keyframes small-nav-bar-animation {
     0%{top:-60px;}
-    // 33%{transform: translate(-50% , 50%);}
     100% {top:0;}
 }
