@@ -1,7 +1,7 @@
 .product-preview{
     
     .product-name-desc-img-container{
-
+        
         box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
         padding: rem(15px) rem(15px) 0 rem(15px);
 
@@ -9,11 +9,19 @@
             overflow: hidden;
             width: 40%;
             height: 220px;
+
+            &:hover{    
+                ~.product-name-desc-container{
+
+                     .product-name-container{text-decoration: underline;}
+                }
+            }
         }
-        .product-name-desc-container{
+        .product-name-desc-details-link-container{
 
-            width: 55%;
-
+            width: 65%;
+            position: relative;
+           
             .product-name-container{
                 .product-name {
                     
@@ -29,6 +37,27 @@
                 }
 
                 margin-bottom: rem(10px);
+                
+            }
+
+            .product-desc{
+                
+
+            }
+        
+
+            .product-details-link{
+                position: absolute;
+                width: rem(100px);
+                height: 2rem;
+                align-self: flex-end;
+                bottom: 10px;
+                
+                
+            }
+
+            &:hover{    
+                .product-name-container{text-decoration: underline;}
             }
             
         }
@@ -36,33 +65,45 @@
 
     }
 
-    .product-price-details-link-container{
+    .product-price-container{
 
         padding: rem(15px);
         background-color: $clr5;
         border-radius: 0px 0px 0px 150px;
         box-shadow: 0 4px 6px 0 rgb(32 33 36 / 28%);
 
-        .product-details-link , .add-to-cart-btn{
-            color: white;
-            background-color: $clr2;
-            border-radius: 5px;
-            height: rem(40px);
-            font-weight: bold;
+        .add-to-cart-btn{
 
-            &:hover{
-                box-shadow: 0 1px 8px 2px $clr8;
+            width: rem(130px); 
+            padding: 0 rem(10px);
+            .add-to-cart-icon{
+                width: 20%;
             }
             
-            
-            
-        }
-        .product-details-link{
-            margin-inline-end: rem(10px);
-            width: rem(100px);
+            &::before{
+                content: "הוסף לעגלה";
+                margin-inline-end: rem(7px);
+            }
         }
 
 
+       
+    }
+
+
+    .product-details-link , .add-to-cart-btn{
+        color: white;
+        background-color: $clr2;
+        border-radius: 5px;
+        height: rem(40px);
+        font-weight: bold;
+
+        &:hover{
+            box-shadow: 0 1px 8px 2px $clr8;
+        }
+        
+        
+        
     }
 
     

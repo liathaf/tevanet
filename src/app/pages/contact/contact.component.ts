@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 import { ContactService } from '../../services/contact.service';
 
@@ -21,9 +22,11 @@ export class ContactComponent implements OnInit {
   isMailSent!:boolean;
   isLoadingAnimationOn!:boolean;
 
-  constructor(private ContactService: ContactService) { }
+  constructor(private ContactService: ContactService , @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
+
+    if (isPlatformBrowser(this.platformId))  window.scroll(0,0);
   }
 
   async onSubmitContactForm() {

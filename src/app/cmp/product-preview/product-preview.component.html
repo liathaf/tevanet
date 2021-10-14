@@ -1,19 +1,21 @@
 <div *ngIf="product" class="product-preview">
     <div class="product-name-desc-img-container flex space-between">
         <div class="product-img-container flex align-center">
-            <img class="product-img" [src]="product.imgs.producImgUrl" alt="">
+            <a [routerLink]="['/product',product._id]" href="">
+                <img class="product-img" [src]="product.imgs.producImgUrl" alt="">
+            </a>
         </div>
-        <div class="product-name-desc-container flex column">
+        <a class="product-name-desc-details-link-container flex column" [routerLink]="['/product',product._id]">
             <div class="product-name-container flex" [ngClass]="{'column': isTextNameTooLong}">
                 <h1 class="product-name fs18">{{product.name.HEB}}</h1>
                 <h1 class="product-name fs18">{{product.name.EN}}</h1>
             </div>
             <p class="product-desc fs14">{{product.description.descPreview.split('').slice(0,100).join('')}}...</p>
-        </div>
+            <a [routerLink]="['/product',product._id]" class="product-details-link fs16 flex align-center justify-center" href="">לפרטים</a>
+        </a>
     </div>
-    <div class="product-price-details-link-container flex align-center">
-        <a [routerLink]="['/product',product._id]" class="product-details-link fs16 flex align-center justify-center" href="">לפרטים</a>
-        <button class="add-to-cart-btn flex align-center" (click)="onAddProductToCart.emit(product)">
+    <div class="product-price-container flex align-center">
+        <button class="add-to-cart-btn flex align-center justify-center" (click)="onAddProductToCart.emit(product)">
             <img class="add-to-cart-icon" src="../../../assets/img/cart-icon-white.svg" alt="">
         </button>
         <p class="product-price fs18">{{product.price}}</p>

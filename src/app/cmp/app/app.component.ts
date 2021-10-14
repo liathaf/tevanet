@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-
-
 import { ChildToParentService } from '../../services/child-to-parent.service';
 
 @Component({
@@ -20,7 +18,9 @@ export class AppComponent {
   isAtDetailsPage!: boolean;
   isAtProductsPage!: boolean;
 
-  
+
+
+
   constructor(private ChildToParentService: ChildToParentService) { }
 
   ngOnInit() {
@@ -34,6 +34,7 @@ export class AppComponent {
     // breadcrumb
     this.ChildToParentService.breadcrumb$.subscribe(breadcrumb => this.breadcrumb = breadcrumb);
 
+
   }
 
   toggleScreenDisplay() {
@@ -45,10 +46,9 @@ export class AppComponent {
     this.toggleScreenDisplay();
   }
 
-  onActivate(ev:any){
+  onActivate(ev: any) {
     this.isAtDetailsPage = ev.isAtDetailsPage;
     this.isAtProductsPage = ev.isAtProductsPage;
-    
   }
 
 
@@ -56,3 +56,5 @@ export class AppComponent {
     this.imgUrlSub.unsubscribe();
   }
 }
+
+

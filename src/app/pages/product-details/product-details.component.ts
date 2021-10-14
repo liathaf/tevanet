@@ -1,5 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+
 
 import { Product } from '../../models/product';
 import { ChildToParentService } from '../../services/child-to-parent.service';
@@ -20,9 +22,12 @@ export class ProductDetailsComponent implements OnInit {
   isAtDetailsPage: boolean = true;
 
 
-  constructor(private route: ActivatedRoute, private ChildToParentService: ChildToParentService, private CartService: CartService) { }
+  constructor(private route: ActivatedRoute, private ChildToParentService: ChildToParentService, 
+    private CartService: CartService, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
+
+    if (isPlatformBrowser(this.platformId))  window.scroll(0,0);
 
     this.route.data.subscribe(data => {
       this.product = data.product

@@ -32,6 +32,5 @@ export class ChildToParentService {
     this.isDisplayCart.next(isDisplayCart)
   }
 
-
   
 }

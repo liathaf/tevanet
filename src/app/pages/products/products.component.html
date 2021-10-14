@@ -1,12 +1,15 @@
 <div class="products container">
-    <h1 [hidden]="(isSearchProduct && (products && products.length===0))" class="product-category fs24">{{productsFilter}}</h1>
+    <h1 [hidden]="isSearchProduct" class="product-category fs24">{{productsFilter}}</h1>
+    <div *ngIf="isSearchProduct && (products && products.length>0)" class="flex">
+        <p class="search-msg fs22">תוצאות חיפוש עבור:</p>
+        <h1 class="product-category fs24">"{{productsFilter}}"</h1>
+    </div>
     <product-list (addProductToCart)="onAddProductToCart($event)" [products]="products"></product-list>
-    <div class="cannot-find-product-msg">
-        <p [hidden]="!(isSearchProduct && (products && products.length===0))">
+    <div class="cannot-find-product-msg flex" *ngIf="(isSearchProduct && (products && products.length===0))">
+        <p class="search-msg fs22">
             אנחנו מתנצלים...
-            חיפשנו בכל האתר אך לא מצאנו את
-            <span class="productsFilter">{{productsFilter}}</span>
+            אך לא מצאנו תוצאות חיפוש עבור:
         </p>
-       
+        <h1 class="productsFilter fs24">"{{productsFilter}}"</h1>
     </div>
 </div>

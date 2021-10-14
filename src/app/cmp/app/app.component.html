@@ -1,10 +1,18 @@
-<div class="app">
+<div #elMain class="app flex column space-between">
+    
     <nav-bar></nav-bar>
-    <main class="main">
+
+    <main  class="main">
         <breadcrumbs [breadcrumb]="breadcrumb" [isAtProductsPage]="isAtProductsPage" [isAtDetailsPage]="isAtDetailsPage"></breadcrumbs>
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
+
+    <!-- space for scroll -->
+    <div class="space"></div>
+
     <footer></footer>
     <div (click)="closeModal()" [ngClass]="{'display-screen' : isDisplayScreen}" class="screen"></div>
+
+
     <modal (closeModal)="closeModal()" [productImg]="productImg"></modal>
 </div>

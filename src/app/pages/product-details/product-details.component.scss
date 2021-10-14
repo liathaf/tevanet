@@ -204,6 +204,7 @@
 
     @include for-mobile-layout {
         grid-template: auto auto 1fr / 1fr;
+        border: unset;
 
         .product-name-desc-prev-container {
             grid-area: 1/1/1/1;
@@ -297,29 +298,4 @@
             }
         }
     }
-}
-
-@include for-desktop-layout{
-    .space{
-    height: 200px;
-    }
-
-}
-@include for-middel-layout{
-    .space{
-    height: 200px;
-    }
-
-}
-@include for-tablet-layout{
-    .space{
-    height: unset;
-    }
-
-}
-@include for-mobile-layout{
-    .space{
-    height: unset;
-    }
-
 }

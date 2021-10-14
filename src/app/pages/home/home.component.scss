@@ -26,6 +26,7 @@
                 width: 100%;
                 line-height: 2em;
                 transition: all 0.3s;
+                padding: rem(5px);
 
 
                 
@@ -49,7 +50,17 @@
            
         }
         @include for-mobile-layout{
-            grid-template-columns: repeat(1, minmax(180px,1fr));
+            grid-template-columns: repeat(2, minmax(100px,1fr));
+            grid-gap: 10px;
+            .categorie-img-container-link{
+          
+                .categories-name{
+                     line-height: 1.5em;
+                     font-size: rem(18px);
+       
+                }
+     
+            }
         }
 
 
@@ -171,7 +182,7 @@
             height: unset;
             border: unset;
             
-            // background-color: unset;
+            
 
             .articles{
                 width: 100%;
