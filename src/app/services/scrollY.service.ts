@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable ,Inject, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser} from '@angular/common';
+
 
 
 
@@ -11,16 +13,16 @@ export class scrollYService {
 
 
 
-    constructor() { }
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
 
     public saveScrollYPos(scrollYPos:any) {
 
       
         if (scrollYPos.scrollYPosHomePage) {
-            sessionStorage.setItem('scrollYPosHomePage' , scrollYPos.scrollYPosHomePage);
+            if (isPlatformBrowser(this.platformId))  sessionStorage.setItem('scrollYPosHomePage' , scrollYPos.scrollYPosHomePage);
         }
-        else sessionStorage.setItem('scrollYPosProductsPage' , scrollYPos.scrollYPosProductsPage);
+        else if (isPlatformBrowser(this.platformId)) sessionStorage.setItem('scrollYPosProductsPage' , scrollYPos.scrollYPosProductsPage);
 
         
         
@@ -28,8 +30,12 @@ export class scrollYService {
     }
 
     public getScrollYPos(key:string) {
-    
-        return sessionStorage.getItem(key);
+        
+        let scrollYPos;
+        if (isPlatformBrowser(this.platformId)) {
+            scrollYPos = sessionStorage.getItem(key);
+        }
+        return scrollYPos;
     }
 
 
