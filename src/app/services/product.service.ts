@@ -33,7 +33,7 @@ export class ProductService {
 
 
     public async loadProducts(filterBy: any): Promise<any> {
-        
+     
         // filter by category - from products cmp
         if (filterBy.category) {
             filterBy = (filterBy.category === 'תוספים כללי-כל התוספים')?  '' : 'category=' + filterBy.category;
@@ -42,8 +42,6 @@ export class ProductService {
         // filter by search input - form filter-product cmp
         else if (filterBy.searchWords) filterBy = 'searchwords=' + filterBy.searchWords; 
         else filterBy = '';
-        
-        
         
         this.http.get<Product[]>(`${this.BASE_URL}?${filterBy}`)
             .pipe(
@@ -60,6 +58,7 @@ export class ProductService {
                 catchError(() => throwError('no product found'))
             )
     }
+
 
     // public async removeRecipe(recipeId) {
 

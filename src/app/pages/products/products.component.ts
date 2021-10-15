@@ -57,7 +57,7 @@ export class ProductsComponent implements OnInit {
 
     this.loadProductByFilter();
 
-    /// for the same route(same label), is refreshing the page
+    /// for the same route(same label), is refreshing the list
     this.routerSub = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       takeUntil(this.destroyed)).subscribe(() => {
@@ -71,7 +71,9 @@ export class ProductsComponent implements OnInit {
 
   async loadProductByFilter() {
 
+    this.products = [];
     this.productsFilter = this.route.snapshot.paramMap.get('filter');
+
     
     const search = this.route.snapshot.params.search;
     if (search) this.isSearchProduct = true; // input filter
@@ -82,6 +84,7 @@ export class ProductsComponent implements OnInit {
     // loading products
     try {
       const filter = (!this.isSearchProduct) ? { category: this.productsFilter } : { searchWords: this.productsFilter }
+      
       await this.ProductService.loadProducts(filter);
       
       this.productSub = this.ProductService.product$.subscribe((products) => {
@@ -91,6 +94,8 @@ export class ProductsComponent implements OnInit {
       console.log('cannot load product - products cmp');
 
     }
+
+    this.isSearchProduct = false;
 
   }
 
