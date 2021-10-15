@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit {
   ngOnDestroy() {
 
     /// save the scroll Y position for the user returing to this page
-    console.log('this.scrollYpos' , this.scrollYpos);
     this.scrollYService.saveScrollYPos({
       scrollYPosHomePage : this.scrollYpos,
       

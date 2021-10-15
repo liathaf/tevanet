@@ -20,7 +20,7 @@ export class NavBarComponent implements OnInit {
   isScrolled!: boolean;
   isRemovePointerEvents!: boolean;
   isDisplayCart!: boolean;
-  cartProducts!: cartProduct[];
+  cartProducts: cartProduct[] = [];
   isDisablePointerEvents!: boolean;
   isCloseCart!: boolean;
 

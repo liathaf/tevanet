@@ -13,7 +13,7 @@ import { cartProduct } from '../../models/cartProduct';
 })
 export class CartComponent implements OnInit {
 
-  cartProducts!:cartProduct[];
+  cartProducts:cartProduct[] = [];
   cartProdSub!:Subscription;
   atCartPage:boolean = true;
 

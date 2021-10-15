@@ -22,7 +22,7 @@ import { scrollYService } from '../../services/scrollY.service';
 })
 export class ProductsComponent implements OnInit {
 
-  products!: Product[];
+  products: Product[] = [];
   productsFilter: any;
   isSearchProduct!: boolean;
   isAtProductsPage: boolean = true;

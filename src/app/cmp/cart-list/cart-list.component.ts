@@ -10,7 +10,7 @@ import { cartProduct } from '../../models/cartProduct';
 })
 export class CartListComponent implements OnInit {
 
-  @Input() cartProducts!: cartProduct[];
+  @Input() cartProducts: cartProduct[] = [];
   @Input() atCartPage!: boolean;
   @Output() changeProductQuantity =  new EventEmitter();
   @Output() removeCartProduct =  new EventEmitter();
