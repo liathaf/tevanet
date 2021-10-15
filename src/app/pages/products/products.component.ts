@@ -60,7 +60,9 @@ export class ProductsComponent implements OnInit {
     /// for the same route(same label), is refreshing the list
     this.routerSub = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
+      // Trick the Router into believing it's last link wasn't previously loaded
       takeUntil(this.destroyed)).subscribe(() => {
+        this.products = [];
         this.loadProductByFilter();
       });
 
@@ -71,16 +73,17 @@ export class ProductsComponent implements OnInit {
 
   async loadProductByFilter() {
 
-    this.products = [];
     this.productsFilter = this.route.snapshot.paramMap.get('filter');
 
     
+    
     const search = this.route.snapshot.params.search;
     if (search) this.isSearchProduct = true; // input filter
-
+    else this.isSearchProduct = false;
+    
     //  breadcrumb
     this.ChildToParentService.breadcrumbToDisplay({ productName: '', productId: '', category: (!this.isSearchProduct) ? this.productsFilter : '' });
-
+    
     // loading products
     try {
       const filter = (!this.isSearchProduct) ? { category: this.productsFilter } : { searchWords: this.productsFilter }
@@ -92,10 +95,9 @@ export class ProductsComponent implements OnInit {
       });
     } catch (err) {
       console.log('cannot load product - products cmp');
-
+      
     }
 
-    this.isSearchProduct = false;
 
   }
 
