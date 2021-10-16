@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
+
 
 
 import { Product } from '../../models/product';
@@ -23,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private ChildToParentService: ChildToParentService, 
-    private CartService: CartService, @Inject(PLATFORM_ID) private platformId: Object) { }
+    private CartService: CartService, @Inject(PLATFORM_ID) private platformId: Object,private titleService: Title, private metaService: Meta) { }
 
   ngOnInit(): void {
 
@@ -48,6 +50,20 @@ export class ProductDetailsComponent implements OnInit {
     if ((nameTextLengthHeb | nameTextLengthEn) > 14) {
       this.isTextNameTooLong = true;
     }
+
+
+    //title 
+    this.titleService.setTitle(`${this.product.name.HEB} | טבע בקריה`);
+    /// meta tags
+    this.metaService.addTags([
+      {name: 'description', content: this.product.description.descPreview},
+      {property: 'og:site_name', content: 'טבע בקריה | מוצרי טבע'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:url', content: `http://www.tevabakirya.co.il/product/${this.product._id}`},
+      {property: 'og:title', content: `${this.product.name.HEB} | טבע בקריה`},
+      {property: 'og:description', content: this.product.description.descPreview},
+      {property: 'og:image', content: this.product.imgs.producImgUrl}
+    ]);
 
 
   }

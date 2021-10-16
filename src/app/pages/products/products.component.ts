@@ -3,8 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Subscription, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
-
-
+import { Title, Meta } from '@angular/platform-browser';
 
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
@@ -43,7 +42,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(private ProductService: ProductService, private route: ActivatedRoute, private router: Router,
     private ChildToParentService: ChildToParentService , private cartService : CartService,
-    private scrollYService: scrollYService,
+    private scrollYService: scrollYService,private titleService: Title, private metaService: Meta,
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
@@ -62,12 +61,12 @@ export class ProductsComponent implements OnInit {
       filter((event) => event instanceof NavigationEnd),
       // Trick the Router into believing it's last link wasn't previously loaded
       takeUntil(this.destroyed)).subscribe(() => {
-        this.products = [];
         this.loadProductByFilter();
       });
 
-    
-
+         //title 
+    this.titleService.setTitle(`${this.productsFilter} | טבע בקריה`);
+  
   }
 
 

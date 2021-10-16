@@ -5,7 +5,7 @@
                 <img class="product-img" [src]="product.imgs.producImgUrl" alt="">
             </a>
         </div>
-        <a class="product-name-desc-details-link-container flex column" [routerLink]="['/product',product._id]">
+        <a class="product-name-desc-details-link-container flex column space-around" [routerLink]="['/product',product._id]">
             <div class="product-name-container flex" [ngClass]="{'column': isTextNameTooLong}">
                 <h1 class="product-name fs18">{{product.name.HEB}}</h1>
                 <h1 class="product-name fs18">{{product.name.EN}}</h1>

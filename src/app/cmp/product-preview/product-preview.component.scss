@@ -20,7 +20,7 @@
         .product-name-desc-details-link-container{
 
             width: 65%;
-            position: relative;
+            
            
             .product-name-container{
                 .product-name {
@@ -47,12 +47,11 @@
         
 
             .product-details-link{
-                position: absolute;
+              
                 width: rem(100px);
                 height: 2rem;
                 align-self: flex-end;
-                bottom: 10px;
-                
+               
                 
             }
 

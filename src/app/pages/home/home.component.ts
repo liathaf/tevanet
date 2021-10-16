@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 
 
 import { ArticleService } from '../../services/article.service';
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private ArticleService: ArticleService, private scrollYService: scrollYService, 
-    @Inject(PLATFORM_ID) private platformId: Object) { }
+    @Inject(PLATFORM_ID) private platformId: Object , private titleService: Title, private metaService: Meta) { }
 
 
 
@@ -42,6 +43,20 @@ export class HomeComponent implements OnInit {
     this.articleSub = this.ArticleService.article$.subscribe((articles) => {
       this.articles = [...articles]
     });
+
+    //title 
+    this.titleService.setTitle('טבע בקריה | מוצרי טבע');
+    /// meta tags
+    this.metaService.addTags([
+      {name: 'description', content: ''},
+      {property: 'og:site_name', content: 'טבע בקריה | מוצרי טבע'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:url', content: 'http://www.tevabakirya.co.il'},
+      {property: 'og:title', content: 'טבע בקריה | מוצרי טבע'},
+      {property: 'og:description', content: ''},
+      {property: 'og:image', content: 'image-200x200'},
+      {property: 'og:image', content: 'image-1200x360'}
+    ]);
 
   }
 
