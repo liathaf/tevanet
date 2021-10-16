@@ -54,8 +54,7 @@ export class HomeComponent implements OnInit {
       {property: 'og:url', content: 'http://www.tevabakirya.co.il'},
       {property: 'og:title', content: 'טבע בקריה | מוצרי טבע'},
       {property: 'og:description', content: ''},
-      {property: 'og:image', content: 'image-200x200'},
-      {property: 'og:image', content: 'image-1200x360'}
+      {property: 'og:image', content: 'https://res.cloudinary.com/dlzwnajfq/image/upload/v1634376174/product/logo/teva-bakiria_logo_o9knbq.png'},
     ]);
 
   }

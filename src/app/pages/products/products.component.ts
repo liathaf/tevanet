@@ -66,7 +66,19 @@ export class ProductsComponent implements OnInit {
 
          //title 
     this.titleService.setTitle(`${this.productsFilter} | טבע בקריה`);
-  
+    /// meta tags
+    this.metaService.addTags([
+      {name: 'description', content: this.productsFilter},
+      {property: 'og:site_name', content: 'טבע בקריה | מוצרי טבע'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:url', content: `http://www.tevabakirya.co.il/product/${this.productsFilter}`},
+      {property: 'og:title', content: `${this.productsFilter} | טבע בקריה`},
+      {property: 'og:description', content: this.productsFilter},
+      {property: 'og:image', content: 'https://res.cloudinary.com/dlzwnajfq/image/upload/v1634376174/product/logo/teva-bakiria_logo_o9knbq.png'}
+    ]);
+
+    
+
   }
 
 
