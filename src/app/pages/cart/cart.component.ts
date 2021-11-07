@@ -39,4 +39,8 @@ export class CartComponent implements OnInit {
     this.CartService.removeProductCart(cartProductId);
   }
 
+  ngOnDestroy() {
+    this.cartProdSub.unsubscribe();
+  }
+
 }

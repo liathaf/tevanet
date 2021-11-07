@@ -65,7 +65,7 @@
       
     }
 
-    &.cart-page {
+    &.cart-page , &.payment-page {
         position: static;
         max-height: unset;
         overflow-y: unset;
@@ -95,11 +95,7 @@
             }
         }
     
-        .productsPayment {
-            .product-price {
-          
-            }
-        }
+       
         .view-bag-checkout-btns {
             justify-content: end;
 
@@ -111,6 +107,20 @@
             }
             @include for-mobile-layout {justify-content: center;}
         }
+    }
+
+    &.payment-page{
+
+        .close-btn-cart-title-name-product-container {
+            
+            margin: 0 0 rem(15px) 0;
+
+            .title-cart {
+                text-decoration: underline;
+                font-size: rem(22px);
+            }
+        }
+        .productsPayment {display: none;}
     }
 
     @include for-mobile-layout {width: 277px;}

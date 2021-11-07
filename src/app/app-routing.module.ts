@@ -9,6 +9,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 
 // resolver
@@ -16,6 +17,7 @@ import { ProductResolver } from './resolver/product.resolver';
 import { ArticleResolver } from './resolver/article.resolver';
 
 const routes: Routes = [
+  { path: 'payment', pathMatch: 'full', component: PaymentComponent },
   { path: 'article/:id', pathMatch: 'full', resolve: { article: ArticleResolver }, component: ArticleDetailsComponent },
   { path: 'about', pathMatch: 'full', component: AboutComponent },
   { path: 'contact', pathMatch: 'full', component: ContactComponent },

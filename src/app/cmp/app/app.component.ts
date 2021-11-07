@@ -17,6 +17,7 @@ export class AppComponent {
   isDisplayModal!: boolean;
   isAtDetailsPage!: boolean;
   isAtProductsPage!: boolean;
+  totalPriceToPay!: number;
 
 
 
@@ -34,15 +35,24 @@ export class AppComponent {
     // breadcrumb
     this.ChildToParentService.breadcrumb$.subscribe(breadcrumb => this.breadcrumb = breadcrumb);
 
+    // app cmp updates when user click to pay , payment cmp send the total price to dispay on modal
+    this.ChildToParentService.totalPrice$.subscribe(totalPrice => {
+      if (totalPrice > 0) this.totalPriceToPay = totalPrice
+      this.toggleScreenDisplay();
+    });
+
 
   }
 
   toggleScreenDisplay() {
-    this.isDisplayScreen = (this.productImg.imgUrl) ? true : false;
+
+    if (this.productImg.imgUrl || this.totalPriceToPay > 0) this.isDisplayScreen = true
+    else this.isDisplayScreen = false;
   }
 
   closeModal() {
     this.productImg.imgUrl = '';
+    this.totalPriceToPay = 0;
     this.toggleScreenDisplay();
   }
 

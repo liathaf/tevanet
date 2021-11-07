@@ -32,5 +32,13 @@ export class ChildToParentService {
     this.isDisplayCart.next(isDisplayCart)
   }
 
+  /// detials and product-by-catedory page update the breadcumb to app cmp
+  private totalPrice = new BehaviorSubject(0);
+  totalPrice$ = this.totalPrice.asObservable();
+
+  getTotalPrice(totalPrice:number) {
+    this.totalPrice.next(totalPrice)
+  }
+
   
 }

@@ -19,11 +19,12 @@ import { BreadcrumbsComponent } from './cmp/breadcrumbs/breadcrumbs.component';
 import { CartPreviewComponent } from './cmp/cart-preview/cart-preview.component';
 import { CartListComponent } from './cmp/cart-list/cart-list.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { CalcPaymentPipe } from './pipes/calc-payment.pipe';
 import { FooterComponent } from './cmp/footer/footer.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
+import { SafePipe  } from './pipes/safePipe';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +41,12 @@ import { ArticleDetailsComponent } from './pages/article-details/article-details
     CartPreviewComponent,
     CartListComponent,
     CartComponent,
-    CalcPaymentPipe,
+    SafePipe ,
     FooterComponent,
     ContactComponent,
     AboutComponent,
     ArticleDetailsComponent,
+    PaymentComponent,
 
   ],
   imports: [

@@ -1,8 +1,8 @@
 .product-img-container-modal{
 
     position:absolute;
-    right: 50%;
-    top: 50%;
+    right: 50vw;
+    top: 50vh;
     transform: translate(50% ,-50%);
     z-index: 4;
     
@@ -40,4 +40,44 @@
         }
        
     }
+}
+
+.payment-modal{
+
+    position:absolute;
+    right: 50vw;
+    top: 50vh;
+    transform: translate(50% ,-50%);
+    z-index: 4;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    background-color: $clr4;
+    height: 550px;
+    
+
+
+    .close-modal-btn{
+        
+        position: absolute;
+        background-color: $clr4;
+        width: 30px;
+        height: 30px;     
+        padding: rem(10px);
+        font-weight: bold;
+        
+    }
+
+    iframe{
+        padding: rem(30px);
+        height: 100%;
+    }
+
+    
+    @include for-mobile-layout{
+        width: 100vw;
+
+        iframe{
+            width: 100%;
+        }
+    }
+
 }

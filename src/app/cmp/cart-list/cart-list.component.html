@@ -1,4 +1,4 @@
-<div class="cart-product-list" [ngClass]="{'cart-page': atCartPage}">
+<div class="cart-product-list" [ngClass]="{'cart-page': atCartPage , 'payment-page': atPaymentPage}">
 
     <div class="close-btn-cart-title-name-product-container flex space-between">
         <div class="title-cart-product-names-container flex">
@@ -22,12 +22,12 @@
     <div *ngIf="cartProducts && cartProducts.length" class="productsPayment flex">
         <p>סכום ביניים לתשלום: </p>
         <!-- pipe - calcPayment -->
-        <p class="product-price fs20">{{cartProducts | calcPayment}}</p>
+        <p class="product-price fs20">{{totalPayment}}</p>
     </div>
 
     <div *ngIf="cartProducts && cartProducts.length" class="view-bag-checkout-btns flex space-between">
-        <button class="general-btn checkout-btn fs16">מעבר לתשלום</button>
+        <a class="general-btn checkout-btn fs16 flex align-center justify-center" *ngIf="!atPaymentPage" routerLink="/payment">מעבר לתשלום</a>
         <a class="general-btn cart-btn fs16 flex align-center justify-center" (click)="goToCartPage()">לסל הקניות</a>
     </div>
-
+    
 </div>

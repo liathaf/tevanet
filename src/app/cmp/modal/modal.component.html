@@ -1,5 +1,13 @@
 <div class="product-img-container-modal" [hidden]="!productImg.imgUrl">
     <button class="close-modal-btn fs20 flex justify-center align-center" (click)="onCloseModal()">x</button>
-    <img class="product-img-url" [src]="productImg.imgUrl" 
-    [ngClass]="{'product-img' : productImg.imgName === 'productImg' , 'product-img-label' : productImg.imgName === 'productLabel' }" alt="">
+    <img class="product-img-url" [src]="productImg.imgUrl"
+    [ngClass]="{'product-img' : productImg.imgName === 'productImg' , 'product-img-label' : productImg.imgName === 'productLabel' }"
+    alt="">
 </div>
+
+<div class="payment-modal" [hidden]="!totalPriceToPay || totalPriceToPay===0" >
+    <button class="close-modal-btn fs20 flex justify-center align-center" (click)="onCloseModal()">x</button>
+    <iframe class="credit-cart-charge" [src]="paymentSrc | safePipe" frameborder="0" width="370px" height="455px">
+    </iframe>
+</div>
+

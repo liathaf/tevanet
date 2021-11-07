@@ -1,0 +1,90 @@
+<form class="payment container" ngNativeValidate (submit)="onSubmitPaymantForm()">
+
+    
+    <div class="delivery-details">
+        <h1 class="title fs22">פרטי משלוח</h1>
+        <div class="delivery-form flex column">
+            <label>*שם מלא בעברית:</label>
+            <input required class="fs16" name="name" type="text" [(ngModel)]="deliveryDetails.name">
+            <label>*מספר טלפון:</label>
+            <input required class="fs16" name="phone" type="text" [(ngModel)]="deliveryDetails.phone">
+            <label>*עיר:</label>
+            <input required class="fs16" name="city" type="text" [(ngModel)]="deliveryDetails.city">
+            <label>*כתובת:</label>
+            <input required class="fs16" name="address" type="text" [(ngModel)]="deliveryDetails.address">
+            <div class="adress-details flex space-between align-center">
+                <div class="flex column">
+                    <label>*בית:</label>
+                    <input required class="fs16" name="buildingNum" type="text" [(ngModel)]="deliveryDetails.buildingNum">
+                </div>
+                <div class="flex column">
+                    <label>כניסה:</label>
+                    <input class="fs16" name="buildingEntrance" type="text" [(ngModel)]="deliveryDetails.buildingEntrance">
+                </div>
+                <div class="flex column">
+                    <label>קומה:</label>
+                    <input class="fs16" name="FloorNum" type="text" [(ngModel)]="deliveryDetails.FloorNum">
+                </div>
+                <div class="flex column">
+                    <label>דירה:</label>
+                    <input class="fs16" name="apartmentNum" type="text" [(ngModel)]="deliveryDetails.apartmentNum">    
+                </div>
+            </div>
+            <label>* אימייל (אליו נשלח את אישור ההזמנה):</label>
+            <input required class="fs16" name="mail" type="text" [(ngModel)]="deliveryDetails.mail">   
+            <label>הערות לשליח:</label>
+            <textarea class="fs16" name="deliveryNotes" type="text" [(ngModel)]="deliveryDetails.deliveryNotes"></textarea>   
+            
+        </div>
+    </div>
+    
+    <div class="delivery-options">
+        <h1 class="title fs22">שיטת משלוח</h1>
+        <div class="delivery-options-container flex space-between">
+            <label>
+                <input required  type="checkbox" name="isHomeDelivery" [(ngModel)]="isHomeDelivery" id="homeDelivery">
+                כ-3 ימי עסקים - שליח עד הבית / העבודה (חינם בקניה מעל 400 ₪)
+            </label>
+            <p>30₪</p>
+        </div>
+    </div>
+    
+    <div class="payment-options">
+        <h1 class="title fs22">אמצעי תשלום</h1>
+        <div class="payment-choice-container flex space-between" (click)="isDisplayPaymantChoices=!isDisplayPaymantChoices">
+            <p #paymentChoice class="payment-choice fs16">בחרו אמצעי תשלום</p>
+            <img class="down-arrow-icon" src="../../../assets/img/down-arrow.svg" alt="">
+        </div>
+        <ul class="optains payment-options-list" [hidden]="!isDisplayPaymantChoices">       
+            <li class="payment-option" (click)="displayPaymantChoices('')">בחרו אמצעי תשלום</li>
+            <li class="payment-option" (click)="displayPaymantChoices('creditCart')">כרטיס אשראי מאובטח</li>
+        </ul>
+        <p *ngIf="isDisplayErrMsg" class="err-msg">*יש למלא את אמצעי התשלום</p>
+    </div>
+    
+    <cart-list class="cart-list" [cartProducts]="cartProducts" 
+    (removeCartProduct)="onRemoveCartProduct($event)"
+    (changeProductQuantity)="onChangeProductQuantity($event)"
+    [atPaymentPage]= "atPaymentPage">
+    </cart-list>
+    
+    <div class="order-summary flex column">
+        <h1 class="title fs22">סיכום הזמנה</h1>
+        <div class="flex space-between">
+            <p>סיכום ביניים:</p>
+            <p>{{totalPayment}}₪</p>
+        </div>
+        <div class="flex space-between">
+            <p>דמי משלוח:</p>
+            <p>{{deliveryPaymant}}₪</p>
+        </div>
+        <div class="flex space-between">
+            <p>סכום כולל:</p>
+            <p class="fs20">{{totalPayment + deliveryPaymant}}₪</p>
+        </div>
+
+        <button class="final-paymant-submission-btn general-btn fs16">בצע הזמנה</button>
+    </div>
+
+</form>
+

@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ModalComponent implements OnInit {
 
   @Input() productImg!:{ imgName:string, imgUrl:string };
+  @Input() totalPriceToPay!:number;
   @Output() closeModal = new EventEmitter(); 
 
   constructor() { }
@@ -15,6 +16,11 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  get paymentSrc() {
+    return `https://direct.tranzila.com/tevab12/iframenew.php?sum=${this.totalPriceToPay}&currency=1&cred_type=1`
+  }
+
 
   onCloseModal(){
     this.closeModal.emit();
