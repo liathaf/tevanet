@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , PLATFORM_ID , Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 import { ChildToParentService } from '../../services/child-to-parent.service';
 
@@ -22,7 +23,7 @@ export class AppComponent {
 
 
 
-  constructor(private ChildToParentService: ChildToParentService) { }
+  constructor(private ChildToParentService: ChildToParentService , @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit() {
 
@@ -38,7 +39,11 @@ export class AppComponent {
     // app cmp updates when user click to pay , payment cmp send the total price to dispay on modal
     this.ChildToParentService.totalPrice$.subscribe(totalPrice => {
       if (totalPrice > 0) this.totalPriceToPay = totalPrice
+      if (isPlatformBrowser(this.platformId)) setTimeout(()=> {
+        window.scroll(0,0);
+      }, 0)  
       this.toggleScreenDisplay();
+
     });
 
 
