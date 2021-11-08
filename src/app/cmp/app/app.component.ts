@@ -18,7 +18,7 @@ export class AppComponent {
   isAtDetailsPage!: boolean;
   isAtProductsPage!: boolean;
   totalPriceToPay!: number;
-
+  isLoadPage!: boolean;
 
 
 
@@ -56,9 +56,15 @@ export class AppComponent {
     this.toggleScreenDisplay();
   }
 
+
+
   onActivate(ev: any) {
+
     this.isAtDetailsPage = ev.isAtDetailsPage;
     this.isAtProductsPage = ev.isAtProductsPage;
+
+    this.isLoadPage = true;
+    setTimeout(() => { this.isLoadPage = false; }, 1000);
   }
 
 

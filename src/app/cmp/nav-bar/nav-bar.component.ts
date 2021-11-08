@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { fromEventPattern, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { CartService } from '../../services/cart.service';
 import { cartProduct } from '../../models/cartProduct';
@@ -13,8 +13,10 @@ import { ChildToParentService } from '../../services/child-to-parent.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: []
 })
+
 export class NavBarComponent implements OnInit {
 
+  @Input() isLoadPage!: boolean;
   isOpenManu!: boolean;
   isOpenProductCategoryManu!: boolean;
   isScrolled!: boolean;
@@ -50,7 +52,7 @@ export class NavBarComponent implements OnInit {
       this.isDisplayCart = isDisplayCart;
       setTimeout(() => {
         this.isDisplayCart = false;
-      } , 3000)
+      }, 3000)
     })
 
   }
@@ -60,6 +62,13 @@ export class NavBarComponent implements OnInit {
     this.isOpenManu = !this.isOpenManu;
 
   }
+
+  ngOnChanges() {
+
+    // if the user click on manu , on navigate to diffrent page , hide the nav-bar manu
+    if (this.isLoadPage) this.isOpenManu = false;
+  }
+
 
   toggleProductCategoryManu() {  //for non desktop layout
     this.isOpenProductCategoryManu = !this.isOpenProductCategoryManu;
@@ -78,7 +87,7 @@ export class NavBarComponent implements OnInit {
     this.router.navigateByUrl(path);
   }
 
-  goToNavBarLink(path:string){
+  goToNavBarLink(path: string) {
     this.toggleManu();
     this.router.navigateByUrl(path);
   }
@@ -103,12 +112,12 @@ export class NavBarComponent implements OnInit {
 
   closeCart() {
     // hide cart
-    this.isCloseCart = true; 
+    this.isCloseCart = true;
     this.onRemovePointerEventsFromCart(true);
     // wait for 1msec and return the hover effect by removing the class to hide the cart
     setTimeout(() => {
       this.onRemovePointerEventsFromCart(false);
-      this.isCloseCart = false; 
+      this.isCloseCart = false;
     }, 1000);
   }
 

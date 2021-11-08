@@ -100,6 +100,9 @@ export class PaymentComponent implements OnInit {
     }
 
     this.ChildToParentService.getTotalPrice(this.totalPayment + this.deliveryPaymant);
+    if (isPlatformBrowser(this.platformId)) setTimeout(()=> {
+      window.scroll(0,0);
+    }, 0)
 
   }
 

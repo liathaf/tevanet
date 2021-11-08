@@ -22,6 +22,7 @@ export class ProductDetailsComponent implements OnInit {
   isInstructionTodisplay!: boolean;
   isTextNameTooLong!: boolean;
   isAtDetailsPage: boolean = true;
+  scrollYpos!:number;
 
 
   constructor(private route: ActivatedRoute, private ChildToParentService: ChildToParentService, 
@@ -91,6 +92,10 @@ export class ProductDetailsComponent implements OnInit {
   onDisplayImg({ imgName, imgUrl }: { imgName: string; imgUrl: string }) {
     // when user clickes to enlarge img, sent to app cmp the img Url to display
     this.ChildToParentService.productUrlToDisplay({ imgName, imgUrl });
+
+    if (isPlatformBrowser(this.platformId)) setTimeout(()=> {
+      window.scroll(0,0);
+    }, 0);
   }
 
   onAddProductToCart() {

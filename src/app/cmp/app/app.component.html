@@ -1,6 +1,6 @@
 <div #elMain class="app flex column space-between">
     
-    <nav-bar></nav-bar>
+    <nav-bar [isLoadPage]="isLoadPage"></nav-bar>
 
     <main  class="main">
         <breadcrumbs [breadcrumb]="breadcrumb" [isAtProductsPage]="isAtProductsPage" [isAtDetailsPage]="isAtDetailsPage"></breadcrumbs>

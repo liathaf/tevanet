@@ -55,16 +55,16 @@
 
         <!-- search products -->
         <product-filter></product-filter>
-        
+
         <div class="cart-link-products"
             [ngClass]="{'no-pointer-events' : isDisablePointerEvents , 'close-cart': isCloseCart , 'display-cart': isDisplayCart}">
-            
+
             <a routerLink="products/cart" href="" class="cart-link">
                 <img class="cart-icon" src="../../../assets/img/cart-icon.svg" alt="">
             </a>
 
             <div class="cart-product-count flex align-center justify-center">{{cartProducts.length}}</div>
-            
+
             <!-- on hover cart link - cart display -->
             <cart-list [cartProducts]="cartProducts" (removeCartProduct)="onRemoveCartProduct($event)"
                 (changeProductQuantity)="onChangeProductQuantity($event)"
