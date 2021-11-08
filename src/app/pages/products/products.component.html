@@ -5,7 +5,7 @@
         <h1 class="product-category fs24">"{{productsFilter}}"</h1>
     </div>
     <product-list (addProductToCart)="onAddProductToCart($event)" [products]="products"></product-list>
-    <div class="cannot-find-product-msg flex" *ngIf="isSearchProduct && (products && products.length===0)">
+    <div class="cannot-find-product-msg flex" *ngIf="isSearchProduct && products.length===0">
         <p class="search-msg fs22">
             אנחנו מתנצלים...
             אך לא מצאנו תוצאות חיפוש עבור:
