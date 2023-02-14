@@ -1,3 +1,4 @@
+@use "sass:math";
 // // Setup
 @import "./assets/styles/setup/variables";
 @import "./assets/styles/setup/functions";
@@ -12,6 +13,16 @@
 @import "./assets/styles/basics/buttons";
 
 // cmps
+@import "./app/cmp/app/app.component.scss";
+@import "./app/cmp/nav-bar/nav-bar.component.scss";
+@import "./app/cmp/product-filter/product-filter.component.scss";
+@import "./app/cmp/product-list/product-list.component.scss";
+@import "./app/cmp/product-preview/product-preview.component.scss";
+@import "./app/cmp/modal/modal.component.scss";
+@import "./app/cmp/breadcrumbs/breadcrumbs.component.scss";
+@import "./app/cmp/cart-list/cart-list.component.scss";
+@import "./app/cmp/cart-preview/cart-preview.component.scss";
+@import "./app/cmp/footer/footer.component.scss";
 
 
 // pages

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'https://tevabakirya-backend.herokuapp.com'
+  API_URL: 'https://tevanet-backend-production.up.railway.app'
 };
