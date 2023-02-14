@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-// import { AgmCoreModule } from '@agm/core';'
 import { GoogleMapsModule } from '@angular/google-maps';
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -56,9 +57,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
     HttpClientModule,
     FormsModule,
     GoogleMapsModule
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyDSsLHSQq148v07iJ7c72RftSkPhQyp5xg'
-    // })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
