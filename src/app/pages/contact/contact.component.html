@@ -15,16 +15,10 @@
                 <img *ngIf="isLoadingAnimationOn" class="loading-img" src="../../../assets/img/loading.png" alt="">
             </button>
         </form>
-         
  
         <google-map class="google-map" [center]="center" [zoom]="18">
             <map-marker [position]="center"></map-marker>
         </google-map>
-
-
-
-
-        
 
     </div> 
     <div *ngIf="isMailSent" class="sentMailMsg flex column align-center justify-center">

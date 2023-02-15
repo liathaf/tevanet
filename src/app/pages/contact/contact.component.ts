@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ElementRef, ViewChild } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 
 import { ContactService } from '../../services/contact.service';
-
 
 
 
@@ -21,17 +20,20 @@ export class ContactComponent implements OnInit {
   desc: string = '';
   isMailSent!: boolean;
   isLoadingAnimationOn!: boolean;
-  
   center: google.maps.LatLngLiteral = {
     lat: 31.543780570493123,
     lng: 35.118525544680224
   };
 
+    
+  
   constructor(private ContactService: ContactService, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
 
     if (isPlatformBrowser(this.platformId)) window.scroll(0, 0);
+    
+  
   }
 
 
