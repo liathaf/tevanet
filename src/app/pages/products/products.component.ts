@@ -31,9 +31,9 @@ export class ProductsComponent implements OnInit {
 
 
 
-  @HostListener('window:scroll', ['$event']) onScrollEvent($event:string) {
-    this.scrollYpos = window.pageYOffset;
-  }
+  // @HostListener('window:scroll', ['$event']) onScrollEvent($event:string) {
+  //   this.scrollYpos = window.pageYOffset;
+  // }
 
 
 

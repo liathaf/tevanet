@@ -31,13 +31,13 @@ export class NavBarComponent implements OnInit {
   isDisplayCartSub!: Subscription;
 
   // listen to the scroll for the nav-bar tranformation 
-  @HostListener('window:scroll') onScrollEvent() {
+  // @HostListener('window:scroll') onScrollEvent() {
 
-    const positionY = window.scrollY;
-    if ((positionY) > 200) this.isScrolled = true;
-    else this.isScrolled = false;
+  //   const positionY = window.scrollY;
+  //   if ((positionY) > 200) this.isScrolled = true;
+  //   else this.isScrolled = false;
 
-  }
+  // }
   constructor(private router: Router, private CartService: CartService, private ChildToParentService: ChildToParentService) { }
 
   ngOnInit(): void {
