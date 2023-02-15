@@ -1,6 +1,6 @@
 <ul class="breadcrumbs container flex">
     <li class="breadcrumb" *ngIf="(breadcrumb.productName || breadcrumb.category) && (isAtDetailsPage || isAtProductsPage)">
-        <a href="/" class="breadcrumb-link fs16 flex align-center justify-center">בית</a>
+        <a [routerLink]="['/']" class="breadcrumb-link fs16 flex align-center justify-center">בית</a>
     </li>
     <li class="breadcrumb" *ngIf="(isAtDetailsPage || isAtProductsPage)">
         <a href="" [routerLink]="['/products',breadcrumb.category]" 
