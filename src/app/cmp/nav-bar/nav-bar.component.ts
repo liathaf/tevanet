@@ -28,6 +28,7 @@ export class NavBarComponent implements OnInit {
 
 
   cartProdSub!: Subscription;
+  isDisplayCartSub!: Subscription;
 
   // listen to the scroll for the nav-bar tranformation 
   @HostListener('window:scroll') onScrollEvent() {
@@ -48,7 +49,7 @@ export class NavBarComponent implements OnInit {
     });
 
     // msg to display cart when adding/updating product to cart
-    this.ChildToParentService.isDisplayCart$.subscribe(isDisplayCart => {
+    this.isDisplayCartSub = this.ChildToParentService.isDisplayCart$.subscribe(isDisplayCart => {
       this.isDisplayCart = isDisplayCart;
       setTimeout(() => {
         this.isDisplayCart = false;
@@ -123,6 +124,7 @@ export class NavBarComponent implements OnInit {
 
   ngOnDestroyed() {
     this.cartProdSub.unsubscribe();
+    this.isDisplayCartSub.unsubscribe();
   }
 
 }

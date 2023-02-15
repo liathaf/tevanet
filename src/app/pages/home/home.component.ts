@@ -66,6 +66,8 @@ export class HomeComponent implements OnInit {
       scrollYPosHomePage : this.scrollYpos,
       
     });
+
+    this.articleSub.unsubscribe();
   }
 
 

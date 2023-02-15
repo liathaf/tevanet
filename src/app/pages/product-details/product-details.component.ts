@@ -8,6 +8,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { Product } from '../../models/product';
 import { ChildToParentService } from '../../services/child-to-parent.service';
 import { CartService } from '../../services/cart.service';
+import { Subscribable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'product-details',
@@ -24,6 +25,8 @@ export class ProductDetailsComponent implements OnInit {
   isAtDetailsPage: boolean = true;
   scrollYpos!:number;
 
+  routeDataSub!:Subscription;
+
 
   constructor(private route: ActivatedRoute, private ChildToParentService: ChildToParentService, 
     private CartService: CartService, @Inject(PLATFORM_ID) private platformId: Object,private titleService: Title, private metaService: Meta) { }
@@ -32,7 +35,7 @@ export class ProductDetailsComponent implements OnInit {
 
     if (isPlatformBrowser(this.platformId))  window.scroll(0,0);
 
-    this.route.data.subscribe(data => {
+    this.routeDataSub = this.route.data.subscribe(data => {
       this.product = data.product
 
       // breadcrumb
@@ -103,6 +106,10 @@ export class ProductDetailsComponent implements OnInit {
 
     /// update nav bar cmp to display cart animation
     this.ChildToParentService.displayCart(true);
+  }
+
+  ngOnDestroy(){
+    this.routeDataSub.unsubscribe();
   }
 
 }

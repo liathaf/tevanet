@@ -12,6 +12,8 @@ import { ChildToParentService } from '../../services/child-to-parent.service';
 export class AppComponent {
 
   imgUrlSub!: Subscription;
+  breadcrumbSub!: Subscription;
+  totalPriceSub!: Subscription;
   productImg!: { imgName: string, imgUrl: string };
   breadcrumb!: { productName: string, productId: string, category: string }
   isDisplayScreen!: boolean;
@@ -34,10 +36,10 @@ export class AppComponent {
     });
 
     // breadcrumb
-    this.ChildToParentService.breadcrumb$.subscribe(breadcrumb => this.breadcrumb = breadcrumb);
+    this.breadcrumbSub = this.ChildToParentService.breadcrumb$.subscribe(breadcrumb => this.breadcrumb = breadcrumb);
 
     // app cmp updates when user click to pay , payment cmp send the total price to dispay on modal
-    this.ChildToParentService.totalPrice$.subscribe(totalPrice => {
+    this.totalPriceSub = this.ChildToParentService.totalPrice$.subscribe(totalPrice => {
       if (totalPrice > 0) this.totalPriceToPay = totalPrice
       if (isPlatformBrowser(this.platformId)) setTimeout(()=> {
         window.scroll(0,0);
@@ -75,6 +77,8 @@ export class AppComponent {
 
   ngOnDestroy() {
     this.imgUrlSub.unsubscribe();
+    this.breadcrumbSub.unsubscribe();
+    this.totalPriceSub.unsubscribe();
   }
 }
 
