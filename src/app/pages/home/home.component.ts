@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
   articleSub!: Subscription;
   scrollYpos: any;
 
-  // @HostListener('window:scroll', ['$event']) onScrollEvent($event:string) {
-  //   this.scrollYpos = window.pageYOffset;
-  // }
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event:string) {
+    this.scrollYpos = window.pageYOffset;
+  }
 
 
 
